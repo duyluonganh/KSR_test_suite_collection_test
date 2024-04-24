@@ -6,11 +6,11 @@ on:
     branches: [ master ]
 jobs:
   build:
-    runs-on: linux-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Install docker # Taken from https://github.com/actions/virtual-environments/issues/1143#issuecomment-652264388
+    - name: Install docker
       run: |
         brew install docker
         colima start
