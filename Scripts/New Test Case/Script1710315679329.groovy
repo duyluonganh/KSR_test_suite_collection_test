@@ -19,3 +19,4 @@ import org.openqa.selenium.Keys as Keys
 
 CustomKeywords.'SampleKeyword.demo'()
 
+WebUI.delay(5)
