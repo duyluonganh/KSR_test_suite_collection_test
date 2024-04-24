@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "D71AF2180EED1CA37C67A6D5F9DA257C",
+  "keywordClasses": [
+    {
+      "name": "SampleKeyword388",
+      "keywordMethods": [
+        {
+          "name": "demo",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

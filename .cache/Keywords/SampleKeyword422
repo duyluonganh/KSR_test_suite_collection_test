@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "CFDA8510197BA571ACA81CFDA3990F2B",
+  "keywordClasses": [
+    {
+      "name": "SampleKeyword422",
+      "keywordMethods": [
+        {
+          "name": "demo",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

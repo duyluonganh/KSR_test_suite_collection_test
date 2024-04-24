@@ -1,0 +1,16 @@
+{
+  "keywordFileContentHash": "BED899072C038C1875230C2D24F21CFF",
+  "keywordClasses": [
+    {
+      "name": "SampleKeyword6",
+      "keywordMethods": [
+        {
+          "name": "demo",
+          "parameters": [],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}
