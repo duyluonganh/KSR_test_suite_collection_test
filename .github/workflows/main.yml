@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker pull
+      run: |
+        docker image pull katalonstudio/katalon:test
+        ls -al
+
+    - name: Katalon Run 1
+      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:test katalonc.sh -projectPath=/tmp/project -noSplash -testSuitePath="Test Suites/New Test Suite" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
