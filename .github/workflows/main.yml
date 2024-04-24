@@ -15,7 +15,6 @@ jobs:
     - name: Docker pull
       run: |
         docker image pull katalonstudio/katalon:9.3.1
-        ls -al
 
     - name: Katalon Run 1
-      run:  'docker run -t --rm -v ${pwd}:/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
+      run:  'docker run -t --rm -v "%cd%":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
