@@ -15,35 +15,11 @@ jobs:
     - name: Docker pull
       run: |
         docker image pull katalonstudio/katalon:9.3.1
+        mkdir /tmp/workspace
 
     - name: Katalon Run 1
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 2
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 3
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 4
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 5
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 6
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 7
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 8
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 9
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
-
-    - name: Katalon Run 10
-      run:  'docker run -t --rm -v "$(pwd)":/tmp/project katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true'
+      run:  |
+        docker run -t --rm -v "$(pwd)":/tmp/project -v /tmp/workspace:/tmp/workspace katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true -data=/tmp/workspace
+        ls /tmp/workspace
 
       
