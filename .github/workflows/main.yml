@@ -19,7 +19,7 @@ jobs:
 
     - name: Katalon Run 1
       run:  |
-        docker run -t --rm -v "$(pwd)":/tmp/project -v /tmp/workspace:/tmp/workspace katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true -data=/tmp/workspace
+        docker run -t --rm -v "$(pwd)":/tmp/project -v /tmp/workspace:/tmp/workspace katalonstudio/katalon:9.3.1 katalonc.sh -projectPath=/tmp/project -noSplash -testSuiteCollectionPath="Test Suites/New Test Suite Collection" -apiKey=${{ secrets.SECRET_KEY }} -browserType="Edge Chromium" --config -webui.autoUpdateDrivers=true -data /tmp/workspace
         ls /tmp/workspace
 
       
